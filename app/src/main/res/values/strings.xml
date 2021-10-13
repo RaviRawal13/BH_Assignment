@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BHeroAssignment</string>
+    <string name="home">Home</string>
+    <string name="tab_1">Tab 1</string>
+    <string name="tab_2">Tab 2</string>
+    <string name="beer_image">Beer Image</string>
+</resources>

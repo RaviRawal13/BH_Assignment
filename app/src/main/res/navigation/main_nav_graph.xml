@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/viewPagerFragment">
+
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.ravirawal.bheroassignment.view_pager.ui.ViewPagerFragment"
+        android:label="View Pager Fragment"
+        tools:layout="@layout/fragment_view_pager">
+        <action
+            android:id="@+id/action_viewPagerFragment_to_beerDetailFragment"
+            app:destination="@id/beerDetailFragment">
+            <argument
+                android:name="beer_item"
+                app:argType="com.ravirawal.bheroassignment.model_ui.BeerUi"
+                app:nullable="true" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/beerDetailFragment"
+        android:name="com.ravirawal.bheroassignment.beer_detail.ui.BeerDetailFragment"
+        android:label="Beer Detail Fragment"
+        tools:layout="@layout/fragment_beer_detail" >
+        <argument
+            android:name="beer_item"
+            app:argType="com.ravirawal.bheroassignment.model_ui.BeerUi"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>
