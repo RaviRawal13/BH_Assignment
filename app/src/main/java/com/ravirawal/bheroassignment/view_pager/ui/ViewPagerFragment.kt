@@ -38,6 +38,7 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentViewPagerBinding.bind(view)
+
         activity?.let {
             viewModel =
                 ViewModelProvider(
@@ -45,6 +46,7 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
                     beerListViewModelFactory
                 ).get(BeerListViewModel::class.java)
         }
+
         binding.tabLayoutViewPager.getTabAt(viewModel.selectedTab)?.select()
         binding.tabLayoutViewPager.addOnTabSelectedListener(object :
             TabLayout.OnTabSelectedListener {

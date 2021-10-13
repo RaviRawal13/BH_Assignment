@@ -31,7 +31,6 @@ class BeerListTwoFragment : Fragment(R.layout.fragment_recyclerview) {
             }
             R.id.checkbox_selected_tab_two -> {
                 viewModel.onNewEditRequest(beerUi)
-//                beerListAdapter.updateItem(0, beerUi.isChecked ?: false)
             }
         }
     }

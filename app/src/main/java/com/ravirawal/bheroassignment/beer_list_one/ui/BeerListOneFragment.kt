@@ -43,11 +43,6 @@ class BeerListOneFragment : Fragment(R.layout.fragment_recyclerview) {
     private fun onRecyclerItemClick(beerUi: BeerUi, i: Int) {
         when (i) {
             R.id.constraint_layout_parent_tab_one -> {
-//                parentFragment?.findNavController()?.navigate(
-//                    R.id.action_viewPagerFragment_to_beerDetailFragment,
-//                    Bundle().apply {
-//                        putParcelable(BUNDLE_BEER_ITEM, beerUi)
-//                    })
                 val action =
                     ViewPagerFragmentDirections.actionViewPagerFragmentToBeerDetailFragment(beerUi)
                 parentFragment?.findNavController()?.navigate(action)
