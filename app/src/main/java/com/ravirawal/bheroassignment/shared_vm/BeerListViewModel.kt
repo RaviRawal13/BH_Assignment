@@ -26,7 +26,7 @@ class BeerListViewModel(
     )
 
     fun onNewEditRequest(beerUi: BeerUi) {
-        modificationEvents.value += Pair(beerUi.id ?: -1, beerUi.isChecked ?: false)
+        modificationEvents.value += Pair(beerUi.id ?: -1, beerUi.isChecked)
     }
 
     private val modificationEvents = MutableStateFlow<Map<Int, Boolean>>(emptyMap())

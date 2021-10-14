@@ -34,6 +34,7 @@ class BeerListAdapter(private val onClick: (BeerUi, Int) -> Unit = { _, _ -> run
                     imageViewPrimaryTabOne.loadImage(it.imageUrl)
                     textViewTitleTabOne.text = it.name
 
+                    checkboxSelectedTabOne.setOnCheckedChangeListener{ _, _ ->{}}
                     checkboxSelectedTabOne.isChecked = it.isChecked ?: false
 
                     checkboxSelectedTabOne.setOnCheckedChangeListener { _, _ ->

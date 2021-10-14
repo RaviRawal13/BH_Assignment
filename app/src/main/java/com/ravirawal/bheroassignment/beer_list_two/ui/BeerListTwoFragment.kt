@@ -68,6 +68,7 @@ class BeerListTwoFragment : Fragment(R.layout.fragment_recyclerview) {
                 beerListAdapter.submitData(pagedData)
             }
         }
+        beerListAdapter.notifyDataSetChanged()
     }
 
     override fun onResume() {

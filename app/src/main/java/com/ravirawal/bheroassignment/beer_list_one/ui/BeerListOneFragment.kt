@@ -81,6 +81,7 @@ class BeerListOneFragment : Fragment(R.layout.fragment_recyclerview) {
                 beerListAdapter.submitData(pagedData)
             }
         }
+        beerListAdapter.notifyDataSetChanged()
     }
 
 }
