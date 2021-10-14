@@ -29,7 +29,7 @@ class BeerListViewModel(
         modificationEvents.value += Pair(beerUi.id ?: -1, beerUi.isChecked ?: false)
     }
 
-    private val modificationEvents = MutableStateFlow<Set<Pair<Int, Boolean>>>(emptySet())
+    private val modificationEvents = MutableStateFlow<Map<Int, Boolean>>(emptyMap())
 
     private val beerPagingData: Pager<Int, BeerUi> = Pager(pagingConfig) {
         BeerPagingSource(beerSources)
@@ -39,20 +39,19 @@ class BeerListViewModel(
         .flow
         .cachedIn(viewModelScope)
         .combine(modificationEvents) { pagingData, modifications ->
-            modifications.fold(pagingData) { acc, event ->
-                edit(acc, event)
-            }
+            edit(pagingData, modifications)
         }
 
     private fun edit(
         paging: PagingData<BeerUi>,
-        beerUi: Pair<Int, Boolean>
+        beerUi: Map<Int, Boolean>
     ): PagingData<BeerUi> {
         return paging
             .map {
-                if (beerUi.first == it.id) return@map it.copy(isChecked = beerUi.second)
-                else return@map it
+                if (beerUi.containsKey(it.id))
+                    return@map it.copy(isChecked = beerUi[it.id] == true)
+                else
+                    return@map it
             }
     }
-
 }
